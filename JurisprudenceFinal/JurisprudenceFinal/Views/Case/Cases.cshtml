@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Cases";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Header {
+
+    <div class="navbar-fixed">
+
+        <nav>
+            <div class="nav-wrapper">
+
+                <div class="container">
+                    <a style="padding-left: 10px" href="#" class="brand-logo">Jurisprudence</a>
+                </div>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li >@Html.ActionLink("Home", "Index","Home")</li>
+                     <li class="active">@Html.ActionLink("Cases", "Cases","Case")</li>
+                    <li>@Html.ActionLink("Lawyer", "Lawyer", "Application")></li>
+                     <li>
+
+                        @Html.ActionLink("Account", "AccountDetails","Home")
+                    </li>
+                    <li>
+
+                        @Html.ActionLink("Logout", "Logout","Home")
+                    </li>
+                   
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+}
+<br />
+<br />
+
+<div class="container">
+    <div class="row" style="text-align: center">
+        <div class=" col s6">
+            <div class="card-panel ">
+
+                @Html.ActionLink("View Case", "ViewCase", "Case", "", new { @class = "waves-effect waves-light btn pink" })
+            </div>
+        </div>
+        <div class=" col s6">
+            <div class="card-panel ">
+
+                @Html.ActionLink("Add Case", "AddCase", "Case", "", new { @class = "waves-effect waves-light btn pink" })
+            </div>
+        </div>
+        
+         
+        </div>
+    </div>

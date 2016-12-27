@@ -1,0 +1,79 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Error</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="~/css/materialize.min.css" rel="stylesheet" />
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+
+        body {
+            background: #fff;
+        }
+
+        .input-field input[type=date]:focus + label,
+        .input-field input[type=text]:focus + label,
+        .input-field input[type=email]:focus + label,
+        .input-field input[type=password]:focus + label {
+            color: #e91e63;
+        }
+
+        .input-field input[type=date]:focus,
+        .input-field input[type=text]:focus,
+        .input-field input[type=email]:focus,
+        .input-field input[type=password]:focus {
+            border-bottom: 2px solid #e91e63;
+            box-shadow: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="section"></div>
+    <main>
+    <center>
+        <div class="indigo-text">
+            <h3>Please Contact Admin</h3>
+        </div>
+
+      <div class="container">
+        <div class="card-panel ">
+            <div style="color:red">   You do not have enough rights.
+                <center>
+                  
+<img src="../../Images/images.png" alt="" />
+                </center>
+             
+            </div>
+       
+        </div>
+           <center>  @Html.ActionLink("Cancel", "Lawyer", "Application","", new { @class = "waves-effect waves-light btn btn-large   red " })
+                           </center>
+      </div>
+    </center>
+  </main>
+    <script src="~/Scripts/jquery-3.1.1.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/js/materialize.min.js"></script>
+    <script>
+
+        jQuery('.numbersOnly').keyup(function () {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
+    </script>
+</body>
+</html>

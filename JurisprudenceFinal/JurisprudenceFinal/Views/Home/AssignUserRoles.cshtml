@@ -1,0 +1,96 @@
+﻿@model IEnumerable<JurisprudenceFinal.Models.UserModelClass>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="~/css/materialize.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+
+        body {
+            background: #fff;
+        }
+
+        .input-field input[type=date]:focus + label,
+        .input-field input[type=text]:focus + label,
+        .input-field input[type=email]:focus + label,
+        .input-field input[type=password]:focus + label {
+            color: #e91e63;
+        }
+
+        .input-field input[type=date]:focus,
+        .input-field input[type=text]:focus,
+        .input-field input[type=email]:focus,
+        .input-field input[type=password]:focus {
+            border-bottom: 2px solid #e91e63;
+            box-shadow: none;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>Assign User Roles</title>
+</head>
+<body>
+    <center>
+        <div class="indigo-text">
+            <h3>Assign User Role</h3>
+        </div>
+    </center>
+   
+    <div class="container">
+        @ViewBag.Message
+    <div class="row">
+    @foreach (var item in Model) {
+         <div class="col s4">
+                <div class="card-panel ">
+                    <table class="hover">
+                        <tr>
+                            @Html.HiddenFor(modelItem => item.UserID)
+                            <td>Name</td>
+                            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                        </tr>
+
+                        <tr>
+                            <td>Address</td>
+                            <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                        </tr>
+                        <tr>
+                            <td>Contact</td>
+                            <td>@Html.DisplayFor(modelItem => item.Contact)</td>
+                        </tr>
+                         <tr>
+                            <td>Role</td>
+                            <td>@Html.DisplayFor(modelItem => item.Role)</td>
+                        </tr>
+
+                       
+                    </table>
+
+                    @Html.ActionLink("Assign", "AddRole", new { id = item.UserID })
+                
+                </div>
+            </div>
+    }
+        <center>
+           @Html.ActionLink("Cancel", "Index","Home", new { @class="waves-effect waves-light btn pink"})
+     </center>
+         
+        </div>
+    </div>
+   
+</body>
+</html>

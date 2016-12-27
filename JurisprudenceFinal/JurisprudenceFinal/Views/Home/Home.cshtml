@@ -1,0 +1,148 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="~/css/materialize.min.css" rel="stylesheet" />
+
+    <script src="~/Scripts/jquery-3.1.1.js"></script>
+    <script src="~/js/materialize.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        .modal {
+            width: 45% !important;
+            height: 100% !important;
+        }
+    </style>
+    <title>Jurisprudence</title>
+</head>
+<body>
+
+    <div class="slider ">
+        <ul class="slides">
+
+            <li>
+                <img src="../../Images/3rdcoa-courtrm.jpg" alt="" />
+                <!-- random image -->
+                <div class="caption left-align">
+                    <h3>Want elegance while searching for justice ?</h3>
+                    <h5 class="light grey-text text-lighten-3">No more hassles and delays.</h5>
+                </div>
+            </li>
+
+            <li>
+                <img src="../../Images/iStock_000017711519Medium.jpg" alt="" />
+
+                <div class="caption center-align">
+                    <h3>Jurisprudence
+                    </h3>
+                    <h5 class="light grey-text text-lighten-3">Everything you want is Here</h5>
+                </div>
+            </li>
+            <li>
+                <img src="../../Images/Courtroom.jpg" alt="" />
+                <div class="caption right-align">
+                    <h3>A Law Firm Management  System </h3>
+
+                    <h5 class="light grey-text text-lighten-3">which provides</h5>
+                    <h5 class="light grey-text text-lighten-3">Streamlined Case Processing</h5>
+                    <h5 class="light grey-text text-lighten-3">Organized Case Details</h5>
+                    <h5 class="light grey-text text-lighten-3">Case Reports</h5>
+                    <h5 class="light grey-text text-lighten-3">and Much More</h5>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="col s1"></div>
+        <div class="col s4">
+            <div class="card-panel grey lighten-5" style="text-align: center">
+                <h5>Login</h5>
+                <br />
+                <span class="teal-text">
+                    @Html.ActionLink("Login", "Login", "Home", new { @class = "waves-effect waves-light btn indigo darken-1" })
+                </span>
+            </div>
+        </div>
+        <div class="col s2"></div>
+        <div class="col s4">
+
+            <div class="card-panel  grey lighten-5" style="text-align: center">
+                <h5>Create Account</h5>
+                <br />
+                <span class="teal-text">
+                    @Html.ActionLink("Create", "CreateAccount", "Home", new { @class = "waves-effect waves-light btn indigo darken-1" })
+                </span>
+            </div>
+        </div>
+        <div class="col s1"></div>
+    </div>
+
+    <!-- start-->
+
+    <script>
+
+        $(document).ready(function () {
+            $("#form1").validate({
+                rules: {
+
+                    name: {
+                        required: true
+                    },
+                    email: {
+                        required: true
+
+                    }
+                    ,
+                    contact: {
+                        required: true,
+                        digits: true,
+                        min: 9000000000,
+                        max: 9999999999
+
+                    }
+                    ,
+                    address: {
+                        required: true
+
+                    }
+                    ,
+                    username: {
+                        required: true
+
+                    }
+                    ,
+                    password: {
+                        required: true
+
+                    }
+
+                },
+                messages: {
+                    name: {
+                        required: 'Name is Required'
+
+                    },
+
+                }
+
+            });
+            $('.slider').slider({ full_width: true });
+
+            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+
+        });
+        jQuery('.numbersOnly').keyup(function () {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
+    </script>
+</body>
+</html>

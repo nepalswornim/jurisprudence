@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="JurisprudenceDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="JurisprudenceDBModelStoreContainer">
+          <EntitySet Name="tbl_Case" EntityType="JurisprudenceDBModel.Store.tbl_Case" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_Lawyer" EntityType="JurisprudenceDBModel.Store.tbl_Lawyer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbl_User" EntityType="JurisprudenceDBModel.Store.tbl_User" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="tbl_Case">
+          <Key>
+            <PropertyRef Name="CaseID" />
+          </Key>
+          <Property Name="CaseID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CaseName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Lawyer" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="CaseType" Type="nvarchar" MaxLength="50" />
+          <Property Name="CaseDetails" Type="nvarchar" MaxLength="500" />
+          <Property Name="Solved" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_Lawyer">
+          <Key>
+            <PropertyRef Name="LawyerID" />
+          </Key>
+          <Property Name="LawyerID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Degree" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contact" Type="nvarchar" MaxLength="50" />
+          <Property Name="CasesSolved" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="Specialty" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateJoined" Type="nvarchar" MaxLength="50" />
+          <Property Name="Age" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Contact" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="AddedDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="Role" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JurisprudenceDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="JurisprudenceDBEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_Case" EntityType="JurisprudenceDBModel.tbl_Case" />
+          <EntitySet Name="tbl_Lawyer" EntityType="JurisprudenceDBModel.tbl_Lawyer" />
+          <EntitySet Name="tbl_User" EntityType="JurisprudenceDBModel.tbl_User" />
+        </EntityContainer>
+        <EntityType Name="tbl_Case">
+          <Key>
+            <PropertyRef Name="CaseID" />
+          </Key>
+          <Property Name="CaseID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CaseName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Lawyer" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="CaseType" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CaseDetails" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="Solved" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tbl_Lawyer">
+          <Key>
+            <PropertyRef Name="LawyerID" />
+          </Key>
+          <Property Name="LawyerID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Degree" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Contact" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CasesSolved" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="Specialty" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="DateJoined" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Age" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Contact" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Username" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Password" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AddedDate" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="Role" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="JurisprudenceDBModelStoreContainer" CdmEntityContainer="JurisprudenceDBEntities">
+          <EntitySetMapping Name="tbl_Case">
+            <EntityTypeMapping TypeName="JurisprudenceDBModel.tbl_Case">
+              <MappingFragment StoreEntitySet="tbl_Case">
+                <ScalarProperty Name="CaseID" ColumnName="CaseID" />
+                <ScalarProperty Name="CaseName" ColumnName="CaseName" />
+                <ScalarProperty Name="Lawyer" ColumnName="Lawyer" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="CaseType" ColumnName="CaseType" />
+                <ScalarProperty Name="CaseDetails" ColumnName="CaseDetails" />
+                <ScalarProperty Name="Solved" ColumnName="Solved" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Lawyer">
+            <EntityTypeMapping TypeName="JurisprudenceDBModel.tbl_Lawyer">
+              <MappingFragment StoreEntitySet="tbl_Lawyer">
+                <ScalarProperty Name="LawyerID" ColumnName="LawyerID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Degree" ColumnName="Degree" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="CasesSolved" ColumnName="CasesSolved" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Specialty" ColumnName="Specialty" />
+                <ScalarProperty Name="DateJoined" ColumnName="DateJoined" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_User">
+            <EntityTypeMapping TypeName="JurisprudenceDBModel.tbl_User">
+              <MappingFragment StoreEntitySet="tbl_User">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

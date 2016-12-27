@@ -1,0 +1,110 @@
+﻿@model JurisprudenceFinal.Models.UserModelClass
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="~/css/materialize.min.css" rel="stylesheet" />
+    <title>Account Details</title>
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+
+        body {
+            background: #fff;
+        }
+
+        .input-field input[type=date]:focus + label,
+        .input-field input[type=text]:focus + label,
+        .input-field input[type=email]:focus + label,
+        .input-field input[type=password]:focus + label {
+            color: #e91e63;
+        }
+
+        .input-field input[type=date]:focus,
+        .input-field input[type=text]:focus,
+        .input-field input[type=email]:focus,
+        .input-field input[type=password]:focus {
+            border-bottom: 2px solid #e91e63;
+            box-shadow: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="section"></div>
+    <main>
+    <center>
+        <div class="indigo-text">
+            <h3>Account Details</h3>
+        </div>
+    </center>
+
+      <div class="container">
+        <div class="card-panel ">
+            <div class="row">
+                <div class="col s3">
+
+            @Html.HiddenFor(model => model.UserID)
+         @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
+    </div>
+        <div class="col s3">
+                     @Html.DisplayNameFor(model => model.Email):
+
+            @Html.DisplayFor(model => model.Email)
+        </div>
+                 <div class="col s3">
+             @Html.DisplayNameFor(model => model.Contact):
+
+            @Html.DisplayFor(model => model.Contact)
+        </div>
+                <div class="col s3">
+             @Html.DisplayNameFor(model => model.Address):
+
+            @Html.DisplayFor(model => model.Address)
+        </div>
+                </div>
+            <div class="row">
+                 <div class="col s3">
+             Username:
+
+            @Html.DisplayFor(model => model.Username)
+        </div>
+                <div class="col s3">
+             @Html.DisplayNameFor(model => model.Password):
+
+            @Html.DisplayFor(model => model.Password)
+        </div>
+
+        
+            </div>
+
+    <p>
+        @Html.ActionLink("Edit", "EditAccount", new { id = Model.UserID },new { @class="waves-effect btn-large  waves-light btn indigo"}) 
+
+        @Html.ActionLink("Back", "Index","Home",new { @class="waves-effect btn-large  waves-light btn red"})
+    </p>
+        </div>
+        </div>
+  </main>
+    <script src="~/Scripts/jquery-3.1.1.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/js/materialize.min.js"></script>
+</body>
+</html>

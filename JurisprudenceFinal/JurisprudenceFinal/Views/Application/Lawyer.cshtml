@@ -1,0 +1,83 @@
+﻿@model IEnumerable<JurisprudenceFinal.Models.LawyerModelClass>
+
+@{
+    ViewBag.Title = "Lawyer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Header {
+    <style>
+    </style>
+
+    <div class="navbar-fixed">
+
+        <nav>
+            <div class="nav-wrapper">
+
+                <div class="container">
+                    <a style="padding-left: 10px" href="#" class="brand-logo">Jurisprudence</a>
+                </div>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li>@Html.ActionLink("Home","Index","Home")</li>
+                    <li>@Html.ActionLink("Cases", "Cases","Case")</li>
+                    <li class="active">@Html.ActionLink("Lawyer", "Lawyer", "Application")</li>
+                     <li>
+
+                        @Html.ActionLink("Account", "AccountDetails","Home")
+                    </li>
+                    <li>
+
+                        @Html.ActionLink("Logout", "Logout", "Home")
+                    </li>
+                   
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+}
+
+<div class="container">
+
+    <br />
+
+    @ViewBag.Message
+
+    @Html.ActionLink("Create New", "AddLawyer", "Application", new { @class = "waves-effect btn btn-large waves-light red" })
+
+    <div class="row">
+
+        @foreach (var item in Model)
+        {
+            <div class="col s4">
+                <div class="card-panel ">
+                    <table class="hover">
+                        <tr>
+                            @Html.HiddenFor(modelItem => item.LawyerID)
+                            <td>Name</td>
+                            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                        </tr>
+
+                        <tr>
+                            <td>Address</td>
+                            <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                        </tr>
+                        <tr>
+                            <td>Contact</td>
+                            <td>@Html.DisplayFor(modelItem => item.Contact)</td>
+                        </tr>
+
+                        <tr>
+                            <td>Specialty</td>
+                            <td>@Html.DisplayFor(modelItem => item.Specialty)</td>
+                        </tr>
+                    </table>
+
+                    @Html.ActionLink("Edit", "EditLawyer", new { id = item.LawyerID })
+                    @Html.ActionLink("Details", "LawyerDetails", new { id = item.LawyerID })
+                    @Html.ActionLink("Delete", "DeleteLawyer", new { id = item.LawyerID })
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

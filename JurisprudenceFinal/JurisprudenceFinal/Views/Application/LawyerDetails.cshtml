@@ -1,0 +1,120 @@
+﻿@model JurisprudenceFinal.Models.LawyerModelClass
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="~/css/materialize.min.css" rel="stylesheet" />
+    <title>Lawyer Details</title>
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+
+        body {
+            background: #fff;
+        }
+
+        .input-field input[type=date]:focus + label,
+        .input-field input[type=text]:focus + label,
+        .input-field input[type=email]:focus + label,
+        .input-field input[type=password]:focus + label {
+            color: #e91e63;
+        }
+
+        .input-field input[type=date]:focus,
+        .input-field input[type=text]:focus,
+        .input-field input[type=email]:focus,
+        .input-field input[type=password]:focus {
+            border-bottom: 2px solid #e91e63;
+            box-shadow: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="section"></div>
+    <main>
+    <center>
+        <div class="indigo-text">
+            <h3>Lawyer Details</h3>
+        </div>
+    </center>
+
+      <div class="container">
+        <div class="card-panel ">
+            <div class="row">
+                <div class="col s3">
+
+            @Html.HiddenFor(model => model.LawyerID)
+         @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
+    </div>
+        <div class="col s3">
+                     @Html.DisplayNameFor(model => model.Degree):
+
+            @Html.DisplayFor(model => model.Degree)
+        </div>
+                 <div class="col s3">
+             @Html.DisplayNameFor(model => model.Address):
+
+            @Html.DisplayFor(model => model.Address)
+        </div>
+                <div class="col s3">
+             @Html.DisplayNameFor(model => model.Contact):
+
+            @Html.DisplayFor(model => model.Contact)
+        </div>
+                </div>
+            <div class="row">
+                 <div class="col s3">
+             Cases Solved:
+
+            @Html.DisplayFor(model => model.CasesSolved)
+        </div>
+                <div class="col s3">
+             @Html.DisplayNameFor(model => model.Specialty):
+
+            @Html.DisplayFor(model => model.Specialty)
+        </div>
+
+        <div class="col s3">
+             @Html.DisplayNameFor(model => model.DateJoined):
+
+            @Html.DisplayFor(model => model.DateJoined)
+        </div>
+
+        <div class="col s3">
+             @Html.DisplayNameFor(model => model.Age):
+
+            @Html.DisplayFor(model => model.Age)
+        </div>
+            </div>
+
+    <p>
+        @Html.ActionLink("Edit", "EditLawyer", new { id = Model.LawyerID },new { @class = "waves-effect waves-light btn   indigo " }) 
+
+      
+    </p>
+        </div>
+          <center>
+                @Html.ActionLink("Back", "Lawyer","",new { @class = "waves-effect waves-light btn pink " })
+          </center>
+        </div>
+  </main>
+    <script src="~/Scripts/jquery-3.1.1.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/js/materialize.min.js"></script>
+</body>
+</html>

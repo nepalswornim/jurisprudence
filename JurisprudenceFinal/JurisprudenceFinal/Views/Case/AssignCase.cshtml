@@ -1,0 +1,102 @@
+﻿@model IEnumerable<JurisprudenceFinal.Models.CaseModelClass>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="~/css/materialize.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+
+        body {
+            background: #fff;
+        }
+
+        .input-field input[type=date]:focus + label,
+        .input-field input[type=text]:focus + label,
+        .input-field input[type=email]:focus + label,
+        .input-field input[type=password]:focus + label {
+            color: #e91e63;
+        }
+
+        .input-field input[type=date]:focus,
+        .input-field input[type=text]:focus,
+        .input-field input[type=email]:focus,
+        .input-field input[type=password]:focus {
+            border-bottom: 2px solid #e91e63;
+            box-shadow: none;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>Assign Case</title>
+</head>
+<body>
+    <center>
+        <div class="indigo-text">
+            <h3>View Case</h3>
+        </div>
+    </center>
+   
+    <div class="container">
+         @ViewBag.Message
+    <div class="row">
+     
+    @foreach (var item in Model) {
+         <div class="col s4">
+                <div class="card-panel ">
+                    <table class="hover">
+                        <tr>
+                            @Html.HiddenFor(modelItem => item.CaseID)
+                            <td>Name</td>
+                            <td>@Html.DisplayFor(modelItem => item.CaseName)</td>
+                        </tr>
+
+                        <tr>
+                            <td>Case Type</td>
+                            <td>@Html.DisplayFor(modelItem => item.CaseType)</td>
+                        </tr>
+                        <tr>
+                            <td>Case Details</td>
+                            <td>@Html.DisplayFor(modelItem => item.CaseDetails)</td>
+                        </tr>
+                         <tr>
+                            <td>Lawyer</td>
+                            <td>@Html.DisplayFor(modelItem => item.Lawyer)</td>
+                        </tr>
+
+                       
+                    </table>
+                      <div style="color:red">
+                                      @ViewBag.Message
+                                </div>
+                    @Html.ActionLink("Assign", "Assign", new { id = item.CaseID },new { @class="waves-effect waves-light btn indigo"})
+                
+                </div>
+            </div>
+    }
+      
+         
+        </div>
+          <center>
+             @Html.ActionLink("Back", "Index","Home","", new { @class="waves-effect waves-light btn pink"})
+     </center>
+    </div>
+   
+</body>
+</html>
+
+

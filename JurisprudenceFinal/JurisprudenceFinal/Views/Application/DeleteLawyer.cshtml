@@ -1,0 +1,210 @@
+﻿@model JurisprudenceFinal.Models.LawyerModelClass
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="~/css/materialize.min.css" rel="stylesheet" />
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+
+        body {
+            background: #fff;
+        }
+
+        .input-field input[type=date]:focus + label,
+        .input-field input[type=text]:focus + label,
+        .input-field input[type=email]:focus + label,
+        .input-field input[type=password]:focus + label {
+            color: #e91e63;
+        }
+
+        .input-field input[type=date]:focus,
+        .input-field input[type=text]:focus,
+        .input-field input[type=email]:focus,
+        .input-field input[type=password]:focus {
+            border-bottom: 2px solid #e91e63;
+            box-shadow: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="section"></div>
+    <main>
+    <center>
+        <div class="indigo-text">
+            <h3>Are you sure You want to Delete this  Lawyer ?</h3>
+        </div>
+
+      <div class="container">
+        <div class="card-panel ">
+             <form class="col s12" id="form1" method="post">
+                 <div class="row">
+                     <div class="col s6">
+                          <table>
+                    <tr>
+                        <td><span>Name</span></td>
+                        <td>
+                            @Html.HiddenFor(model => model.LawyerID)
+                            @Html.DisplayFor(model => model.Name)
+                           </td>
+                    </tr>
+                    <tr>
+                        <td><span>Degree</span></td>
+                        <td>
+                             @Html.DisplayFor(model => model.Degree)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>Address</span></td>
+                        <td>
+                             @Html.DisplayFor(model => model.Address)
+                        </td>
+                    </tr>
+                </table>
+                     </div>
+                     <div class="col s6">
+                         <table> <tr>
+                        <td>Contact</td>
+                        <td>
+                             @Html.DisplayFor(model => model.Contact)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>Specialty</span></td>
+                        <td>
+
+                               @Html.DisplayFor(model => model.Specialty)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>Age</span></td>
+                        <td>
+                               @Html.DisplayFor(model => model.Age, new { @class = "numbersOnly" })
+                         </td>
+                    </tr>
+                             </table></div>
+
+                            <div>
+                                @ViewBag.Message
+                                <button type='submit' name='btn_login' class='btn btn-large  waves-effect indigo'>Delete Lawyer</button>
+
+                            @Html.ActionLink("Cancel", "Lawyer", "Application", new { @class = "waves-effect waves-light btn btn-large   red " })
+                              </div>
+
+                     <div>
+                                    </div>
+                     </div>
+          </form>
+        </div>
+      </div>
+    </center>
+  </main>
+    <script src="~/Scripts/jquery-3.1.1.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#form1").validate({
+                rules: {
+                    name: {
+                        required: true,
+                        rangelength: [5, 50]
+                    },
+                    password: {
+                        required: true,
+                        minlength: 5,
+                        maxlength: 25
+                    },
+                    email: {
+                        required: true
+                    },
+                    contact: {
+
+                        required: true,
+                        min: 9700000000,
+                        max: 9999999999
+
+                    },
+                    address: {
+                        required: true,
+                    },
+                    degree: {
+
+                        required: true,
+                    },
+                    specialty: {
+                        required: true
+
+                    },
+                    age: {
+                        required: true,
+                        min: 22,
+                        max: 60
+
+                    }
+
+                },
+                messages: {
+                    name: {
+                        required: 'Please Enter a Name'
+                    },
+                    password: {
+
+                        required: 'Please Enter a Password',
+                        minlength: 'Password too Short',
+                        maxlength: 'Password longer than 25 Characters'
+
+                    },
+                    email: {
+
+                        required: 'Please Enter an Email'
+
+                    },
+                    contact: {
+                        required: 'Please Enter a valid Phone Number',
+                        max: 'Please Enter a valid Phone Number',
+                        min: 'Please Enter a valid Phone Number'
+                    },
+
+                    address: {
+                        required: 'Please Enter an Address',
+                    },
+                    degree: {
+
+                        required: 'Please Enter a Degree',
+                    },
+                    specialty: {
+                        required: 'Please Enter Your Specialty'
+
+                    },
+                    age: {
+                        required: 'Please Enter an Age',
+                        max: 'You must be above 22 and below 70',
+                        min: 'You must be above 22 and below 70'
+                    }
+
+                }
+            })
+        })
+        jQuery('.numbersOnly').keyup(function () {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
+    </script>
+</body>
+</html>
